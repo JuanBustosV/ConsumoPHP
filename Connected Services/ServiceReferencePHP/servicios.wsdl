@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:servicios" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:servicios" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:servicios">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="ArrayOfString">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="xsd:string[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Equipos">
+        <xsd:all>
+          <xsd:element name="nombre" type="xsd:string" />
+          <xsd:element name="pais" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="EquiposArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:Equipos[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Producto">
+        <xsd:all>
+          <xsd:element name="idproducto" type="xsd:int" />
+          <xsd:element name="nombre" type="xsd:string" />
+          <xsd:element name="precio" type="xsd:double" />
+          <xsd:element name="stock" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldRequest" />
+  <wsdl:message name="HelloWorldResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="SaludarRequest">
+    <wsdl:part name="nombre" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="SaludarResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GuardarLogRequest">
+    <wsdl:part name="mensaje" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GuardarLogResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="SumarRequest">
+    <wsdl:part name="numero_1" type="xsd:int" />
+    <wsdl:part name="numero_2" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="SumarResponse">
+    <wsdl:part name="return" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerFrutasRequest" />
+  <wsdl:message name="ObtenerFrutasResponse">
+    <wsdl:part name="return" type="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GuardarFrutasRequest">
+    <wsdl:part name="frutas" type="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GuardarFrutasResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerEquiposRequest" />
+  <wsdl:message name="ObtenerEquiposResponse">
+    <wsdl:part name="return" type="tns:EquiposArray" />
+  </wsdl:message>
+  <wsdl:message name="GuardarEquiposRequest">
+    <wsdl:part name="equipos" type="tns:EquiposArray" />
+  </wsdl:message>
+  <wsdl:message name="GuardarEquiposResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GuardarXMLRequest">
+    <wsdl:part name="xml" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GuardarXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="RetornarJsonRequest" />
+  <wsdl:message name="RetornarJsonResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GuardarJsonRequest">
+    <wsdl:part name="json" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GuardarJsonResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProductosRequest" />
+  <wsdl:message name="ObtenerProductosResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProductoRequest">
+    <wsdl:part name="idproducto" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProductoResponse">
+    <wsdl:part name="return" type="tns:Producto" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarProductoRequest">
+    <wsdl:part name="producto" type="tns:Producto" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarProductoResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="GuardarProductoRequest">
+    <wsdl:part name="producto" type="tns:Producto" />
+  </wsdl:message>
+  <wsdl:message name="GuardarProductoResponse">
+    <wsdl:part name="return" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="EliminarProductoRequest">
+    <wsdl:part name="idproducto" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="EliminarProductoResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerFechaRequest" />
+  <wsdl:message name="ObtenerFechaResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerHoraRequest" />
+  <wsdl:message name="ObtenerHoraResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="serviciosPortType">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldRequest" />
+      <wsdl:output message="tns:HelloWorldResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Saludar">
+      <documentation>Saluda a la persona</documentation>
+      <wsdl:input message="tns:SaludarRequest" />
+      <wsdl:output message="tns:SaludarResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarLog">
+      <documentation>Guardar Log</documentation>
+      <wsdl:input message="tns:GuardarLogRequest" />
+      <wsdl:output message="tns:GuardarLogResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="Sumar">
+      <documentation>Sumar 2 nÃºmeros</documentation>
+      <wsdl:input message="tns:SumarRequest" />
+      <wsdl:output message="tns:SumarResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFrutas">
+      <wsdl:input message="tns:ObtenerFrutasRequest" />
+      <wsdl:output message="tns:ObtenerFrutasResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarFrutas">
+      <wsdl:input message="tns:GuardarFrutasRequest" />
+      <wsdl:output message="tns:GuardarFrutasResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEquipos">
+      <wsdl:input message="tns:ObtenerEquiposRequest" />
+      <wsdl:output message="tns:ObtenerEquiposResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarEquipos">
+      <wsdl:input message="tns:GuardarEquiposRequest" />
+      <wsdl:output message="tns:GuardarEquiposResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarXML">
+      <wsdl:input message="tns:GuardarXMLRequest" />
+      <wsdl:output message="tns:GuardarXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="RetornarJson">
+      <wsdl:input message="tns:RetornarJsonRequest" />
+      <wsdl:output message="tns:RetornarJsonResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarJson">
+      <wsdl:input message="tns:GuardarJsonRequest" />
+      <wsdl:output message="tns:GuardarJsonResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductos">
+      <wsdl:input message="tns:ObtenerProductosRequest" />
+      <wsdl:output message="tns:ObtenerProductosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProducto">
+      <wsdl:input message="tns:ObtenerProductoRequest" />
+      <wsdl:output message="tns:ObtenerProductoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarProducto">
+      <wsdl:input message="tns:ActualizarProductoRequest" />
+      <wsdl:output message="tns:ActualizarProductoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarProducto">
+      <wsdl:input message="tns:GuardarProductoRequest" />
+      <wsdl:output message="tns:GuardarProductoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProducto">
+      <wsdl:input message="tns:EliminarProductoRequest" />
+      <wsdl:output message="tns:EliminarProductoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFecha">
+      <wsdl:input message="tns:ObtenerFechaRequest" />
+      <wsdl:output message="tns:ObtenerFechaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerHora">
+      <wsdl:input message="tns:ObtenerHoraRequest" />
+      <wsdl:output message="tns:ObtenerHoraResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="serviciosBinding" type="tns:serviciosPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="urn:servicios#HelloWorld" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Saludar">
+      <soap:operation soapAction="urn:servicios#Saludar" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarLog">
+      <soap:operation soapAction="urn:servicios#GuardarLog" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sumar">
+      <soap:operation soapAction="urn:servicios#Sumar" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFrutas">
+      <soap:operation soapAction="urn:servicios#ObtenerFrutas" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarFrutas">
+      <soap:operation soapAction="urn:servicios#GuardarFrutas" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerEquipos">
+      <soap:operation soapAction="urn:servicios#ObtenerEquipos" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarEquipos">
+      <soap:operation soapAction="urn:servicios#GuardarEquipos" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarXML">
+      <soap:operation soapAction="urn:servicios#GuardarXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetornarJson">
+      <soap:operation soapAction="urn:servicios#RetornarJson" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarJson">
+      <soap:operation soapAction="urn:servicios#GuardarJson" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProductos">
+      <soap:operation soapAction="urn:servicios#ObtenerProductos" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProducto">
+      <soap:operation soapAction="urn:servicios#ObtenerProducto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarProducto">
+      <soap:operation soapAction="urn:servicios#ActualizarProducto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarProducto">
+      <soap:operation soapAction="urn:servicios#GuardarProducto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarProducto">
+      <soap:operation soapAction="urn:servicios#EliminarProducto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFecha">
+      <soap:operation soapAction="urn:servicios#ObtenerFecha" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerHora">
+      <soap:operation soapAction="urn:servicios#ObtenerHora" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:servicios" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="servicios">
+    <wsdl:port name="serviciosPort" binding="tns:serviciosBinding">
+      <soap:address location="http://serviciostests.000webhostapp.com/servicios.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
