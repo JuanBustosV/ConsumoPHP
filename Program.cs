@@ -81,12 +81,14 @@ namespace ConsumoPHP
 
                             Console.ReadKey(true);
                             break;
-                        case ConsoleKey.D2:
+                        case ConsoleKey.D2: // CURSO: 78. Consumo del método GuardarLog
                             Console.Clear();
                             // Inicia el contador:
                             tiempo = Stopwatch.StartNew();
 
-                            result = client.GuardarLog("Prueba inicial");
+                            // Código del programa...                            
+
+                            result = client.GuardarLog("Mensaje desde .Net");
 
                             // Para el contador e imprime el resultado:
                             Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
@@ -174,7 +176,7 @@ namespace ConsumoPHP
             Console.SetCursorPosition(5, Console.CursorTop);
             Console.WriteLine("1.- Saludar(*)".PadRight(30, ' '));
             Console.SetCursorPosition(5, Console.CursorTop);
-            Console.WriteLine("2.- GuardarLog()".PadRight(30, ' ') + "*");
+            Console.WriteLine("2.- GuardarLog(*)".PadRight(30, ' ') + "*");
             Console.SetCursorPosition(5, Console.CursorTop);
             Console.WriteLine("3.- Sumar(*,*)");
             Console.SetCursorPosition(5, Console.CursorTop);
