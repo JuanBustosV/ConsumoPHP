@@ -94,54 +94,89 @@ namespace ConsumoPHP
                             Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
                             break;
-                        case ConsoleKey.D3:
+                        case ConsoleKey.D3: // CURSO: 79. Consumo del método Sumar
                             Console.Clear();
+
+                            // Inicia el contador:
+                            tiempo = Stopwatch.StartNew();
+
+                            // Código del programa...                            
+
+                            result = client.Sumar(4, 3).ToString();
+
+                            // Para el contador e imprime el resultado:
+                            Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.ReadKey(true);
+
                             break;
-                        case ConsoleKey.D4:
+                        case ConsoleKey.D4: // CURSO: 
+                            Console.Clear(); 
+
+                            // Inicia el contador:
+                            tiempo = Stopwatch.StartNew();
+
+                            // Código del programa...                            
+
+                            //result = client.
+
+                            // Para el contador e imprime el resultado:
+                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.ReadKey(true);
+
+                            break;
+                        case ConsoleKey.D5: // CURSO: 
+                            Console.Clear();
+
+                            // Inicia el contador:
+                            tiempo = Stopwatch.StartNew();
+
+                            // Código del programa...                            
+
+                            //result = client.
+
+                            // Para el contador e imprime el resultado:
+                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.ReadKey(true);
+
+                            break;
+                        case ConsoleKey.D6: // CURSO: 
+                            Console.Clear();
+                            
+                            break;
+                        case ConsoleKey.D7: // CURSO: 
+                            Console.Clear();
+                            
+                            break;
+                        case ConsoleKey.D8: // CURSO: 
                             Console.Clear();
                            
                             break;
-                        case ConsoleKey.D5:
-                            Console.Clear();
-                            break;
-                        case ConsoleKey.D6:
+                        case ConsoleKey.D9: // CURSO: 
                             Console.Clear();
                             
-                            break;
-                        case ConsoleKey.D7:
-                            Console.Clear();
-                            
-                            break;
-                        case ConsoleKey.D8:
-                            Console.Clear();
-                           
-                            break;
-                        case ConsoleKey.D9:
-                            Console.Clear();
-                            
-                            break;
-                        case ConsoleKey.A:
+                            break; 
+                        case ConsoleKey.A: // CURSO: 
                             Console.Clear();
                             break;
-                        case ConsoleKey.B:
+                        case ConsoleKey.B: // CURSO: 
                             Console.Clear();
                             break;
-                        case ConsoleKey.C:
+                        case ConsoleKey.C: // CURSO: 
                             Console.Clear();
                             break;
-                        case ConsoleKey.D:
+                        case ConsoleKey.D: // CURSO: 
                             Console.Clear();
                             break;
-                        case ConsoleKey.E:
+                        case ConsoleKey.E: // CURSO: 
                             Console.Clear();
                             break;
-                        case ConsoleKey.F:
+                        case ConsoleKey.F: // CURSO: 
                             Console.Clear();
                             break;
-                        case ConsoleKey.G:
+                        case ConsoleKey.G: // CURSO: 
                             Console.Clear();
                             break;
-                        case ConsoleKey.H: // cambiar a autenticación Básica en IIS
+                        case ConsoleKey.H: // CURSO: 
                             Console.Clear();
                             break;
 
