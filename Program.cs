@@ -89,6 +89,7 @@ namespace ConsumoPHP
                             // Código del programa...                            
 
                             result = client.GuardarLog("Mensaje desde .Net");
+                            tiempo.Stop();
 
                             // Para el contador e imprime el resultado:
                             Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
@@ -103,24 +104,29 @@ namespace ConsumoPHP
                             // Código del programa...                            
 
                             result = client.Sumar(4, 3).ToString();
+                            tiempo.Stop();
 
                             // Para el contador e imprime el resultado:
                             Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
 
                             break;
-                        case ConsoleKey.D4: // CURSO: 
+                        case ConsoleKey.D4: // CURSO: 80. Consumo del método ObtenerFrutas
                             Console.Clear(); 
 
                             // Inicia el contador:
                             tiempo = Stopwatch.StartNew();
 
                             // Código del programa...                            
-
-                            //result = client.
+                            string[] frutas = client.ObtenerFrutas();
+                            tiempo.Stop();
 
                             // Para el contador e imprime el resultado:
-                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            foreach (string fruta in frutas)
+                            {
+                                Console.WriteLine(fruta);
+                            }
+                            Console.WriteLine("\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
 
                             break;
@@ -133,6 +139,7 @@ namespace ConsumoPHP
                             // Código del programa...                            
 
                             //result = client.
+                            tiempo.Stop();
 
                             // Para el contador e imprime el resultado:
                             //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
