@@ -140,8 +140,6 @@ namespace ConsumoPHP
 
                             // Código del programa...                            
                             result = client.GuardarFrutas(fruits);
-
-                            //result = client.
                             tiempo.Stop();
 
                             // Para el contador e imprime el resultado:
@@ -157,8 +155,7 @@ namespace ConsumoPHP
 
                             // Código del programa...                            
                             ServiceReferencePHP.Equipos[] equipos = client.ObtenerEquipos();
-
-                            //result = client.
+                            
                             tiempo.Stop();
 
                             foreach (ServiceReferencePHP.Equipos equipo in equipos)
@@ -171,19 +168,24 @@ namespace ConsumoPHP
                             Console.ReadKey(true);
                           
                             break;
-                        case ConsoleKey.D7: // CURSO: 
+                        case ConsoleKey.D7: // CURSO: 83. Consumo del método GuardarEquipos
                             Console.Clear();
+
+                            ServiceReferencePHP.Equipos[] teams = new ServiceReferencePHP.Equipos[]
+                            {
+                                new ServiceReferencePHP.Equipos() { nombre = "Sevilla", pais = "España"},
+                                new ServiceReferencePHP.Equipos() { nombre = "Chealse", pais = "Inglaterra"},
+                            };
 
                             // Inicia el contador:
                             tiempo = Stopwatch.StartNew();
 
-                            // Código del programa...                            
-
-                            //result = client.
+                            // Código del programa...
+                            result = client.GuardarEquipos(teams);
                             tiempo.Stop();
 
                             // Para el contador e imprime el resultado:
-                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
                             break;
                         case ConsoleKey.D8: // CURSO: 
@@ -309,7 +311,7 @@ namespace ConsumoPHP
             Console.SetCursorPosition(5, Console.CursorTop);
             Console.WriteLine("6.- ObtenerEquipos()");
             Console.SetCursorPosition(5, Console.CursorTop);
-            Console.WriteLine("7.- GuardarEquipos()".PadRight(30, ' ') + "*");
+            Console.WriteLine("7.- GuardarEquipos(*)".PadRight(30, ' ') + "*");
             Console.SetCursorPosition(5, Console.CursorTop);
             Console.WriteLine("8.- GuardarXML()");
             Console.SetCursorPosition(5, Console.CursorTop);
