@@ -188,19 +188,18 @@ namespace ConsumoPHP
                             Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
                             break;
-                        case ConsoleKey.D8: // CURSO: 
+                        case ConsoleKey.D8: // CURSO: 84. Consumo del método GuardarXML
                             Console.Clear();
-
+                            string XmlContent = "<?xml version='1.0' encoding='UTF-8'?><documento><deporte><![CDATA[Futbol]]></deporte><equipos><equipo><nombre><![CDATA[Ajax]]></nombre><pais><![CDATA[Holanda]]></pais></equipo><equipo><nombre><![CDATA[Valencia]]></nombre><pais><![CDATA[España]]></pais></equipo></equipos></documento>";
                             // Inicia el contador:
                             tiempo = Stopwatch.StartNew();
 
                             // Código del programa...                            
-
-                            //result = client.
+                            result = client.GuardarXML(XmlContent);
                             tiempo.Stop();
 
                             // Para el contador e imprime el resultado:
-                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
                             break;
                         case ConsoleKey.D9: // CURSO: 
