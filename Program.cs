@@ -287,18 +287,26 @@ namespace ConsumoPHP
                             Console.ReadKey(true);
 
                             break;
-                        case ConsoleKey.D: // CURSO: 
+                        case ConsoleKey.D: // CURSO: 90. Consumo del método ActualizarProducto
                             Console.Clear();
+
+                            ServiceReferencePHP.Producto p = new ServiceReferencePHP.Producto()
+                            {
+                                idproducto = 2,
+                                nombre = "PS4 PRO",
+                                precio = 720,
+                                stock = 15
+                            };
 
                             // Inicia el contador:
                             tiempo = Stopwatch.StartNew();
 
-                            // Código del programa...                            
-                            //result = client.
+                            // Código del programa...                                                                                        
+                            result = client.ActualizarProducto(p);
                             tiempo.Stop();
 
                             // Para el contador e imprime el resultado:
-                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
                             break;
                         case ConsoleKey.E: // CURSO: 
