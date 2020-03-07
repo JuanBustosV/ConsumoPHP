@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -202,7 +203,7 @@ namespace ConsumoPHP
                             Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
                             break;
-                        case ConsoleKey.D9: // CURSO: 
+                        case ConsoleKey.D9: // CURSO: 85. Consumo del método RetornarJson
                             Console.Clear();
 
                             // Inicia el contador:
@@ -210,11 +211,19 @@ namespace ConsumoPHP
 
                             // Código del programa...                            
 
-                            //result = client.
+                            result = client.RetornarJson();
                             tiempo.Stop();
 
+                            dynamic data_json = JsonConvert.DeserializeObject(result);
+                            Console.WriteLine(data_json.deporte);
+
+                            foreach (dynamic equipo in data_json.equipos)
+                            {
+                                Console.WriteLine(equipo.nombre + " - " + equipo.pais);
+                            }
+
                             // Para el contador e imprime el resultado:
-                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.WriteLine("\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
 
                             break; 
@@ -330,9 +339,7 @@ namespace ConsumoPHP
             Console.SetCursorPosition(5, Console.CursorTop);
             Console.WriteLine("G.- ObtenerFecha()");
             Console.SetCursorPosition(5, Console.CursorTop);
-            Console.WriteLine("H.- ObtenerHora()");
-            Console.SetCursorPosition(5, Console.CursorTop);
-            Console.WriteLine("I.- ()");
+            Console.WriteLine("H.- ObtenerHora()");            
 
             if (Console.CursorTop < 24)
                 Console.CursorTop = 24;
