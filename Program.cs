@@ -130,19 +130,22 @@ namespace ConsumoPHP
                             Console.ReadKey(true);
 
                             break;
-                        case ConsoleKey.D5: // CURSO: 
+                        case ConsoleKey.D5: // CURSO: 81. Consumo del método GuardarFrutas
                             Console.Clear();
+
+                            string[] fruits = new string[] { "Mango", "Pera", "Plátano" };
 
                             // Inicia el contador:
                             tiempo = Stopwatch.StartNew();
 
                             // Código del programa...                            
+                            result = client.GuardarFrutas(fruits);
 
                             //result = client.
                             tiempo.Stop();
 
                             // Para el contador e imprime el resultado:
-                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
 
                             break;
