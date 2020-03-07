@@ -146,27 +146,105 @@ namespace ConsumoPHP
                             Console.ReadKey(true);
 
                             break;
-                        case ConsoleKey.D6: // CURSO: 
+                        case ConsoleKey.D6: // CURSO: 82. Consumo del método ObtenerEquipos
                             Console.Clear();
-                            
+
+                            // Inicia el contador:
+                            tiempo = Stopwatch.StartNew();
+
+                            // Código del programa...                            
+                            ServiceReferencePHP.Equipos[] equipos = client.ObtenerEquipos();
+
+                            //result = client.
+                            tiempo.Stop();
+
+                            foreach (ServiceReferencePHP.Equipos equipo in equipos)
+                            {
+                                Console.WriteLine(equipo.nombre + " - " + equipo.pais);
+                            }
+
+                            // Para el contador e imprime el resultado:
+                            Console.WriteLine("\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.ReadKey(true);
+                          
                             break;
                         case ConsoleKey.D7: // CURSO: 
                             Console.Clear();
-                            
+
+                            // Inicia el contador:
+                            tiempo = Stopwatch.StartNew();
+
+                            // Código del programa...                            
+
+                            //result = client.
+                            tiempo.Stop();
+
+                            // Para el contador e imprime el resultado:
+                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.ReadKey(true);
                             break;
                         case ConsoleKey.D8: // CURSO: 
                             Console.Clear();
-                           
+
+                            // Inicia el contador:
+                            tiempo = Stopwatch.StartNew();
+
+                            // Código del programa...                            
+
+                            //result = client.
+                            tiempo.Stop();
+
+                            // Para el contador e imprime el resultado:
+                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.ReadKey(true);
                             break;
                         case ConsoleKey.D9: // CURSO: 
                             Console.Clear();
-                            
+
+                            // Inicia el contador:
+                            tiempo = Stopwatch.StartNew();
+
+                            // Código del programa...                            
+
+                            //result = client.
+                            tiempo.Stop();
+
+                            // Para el contador e imprime el resultado:
+                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.ReadKey(true);
+
                             break; 
                         case ConsoleKey.A: // CURSO: 
                             Console.Clear();
+
+                            // Inicia el contador:
+                            tiempo = Stopwatch.StartNew();
+
+                            // Código del programa...                            
+
+                            //result = client.
+                            tiempo.Stop();
+
+                            // Para el contador e imprime el resultado:
+                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.ReadKey(true);
+
                             break;
                         case ConsoleKey.B: // CURSO: 
                             Console.Clear();
+
+                            // Inicia el contador:
+                            tiempo = Stopwatch.StartNew();
+
+                            // Código del programa...                            
+
+                            //result = client.
+                            tiempo.Stop();
+
+                            // Para el contador e imprime el resultado:
+                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.ReadKey(true);
+
                             break;
                         case ConsoleKey.C: // CURSO: 
                             Console.Clear();
