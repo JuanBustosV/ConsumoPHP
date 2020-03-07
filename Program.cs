@@ -331,17 +331,17 @@ namespace ConsumoPHP
                             Console.ReadKey(true);
 
                             break;
-                        case ConsoleKey.F: // CURSO: 
+                        case ConsoleKey.F: // CURSO: 92. Consumo del método EliminarProducto
                             Console.Clear();
                             // Inicia el contador:
                             tiempo = Stopwatch.StartNew();
 
                             // Código del programa...                            
-                            //result = client.
+                            result = client.EliminarProducto(4);
                             tiempo.Stop();
 
                             // Para el contador e imprime el resultado:
-                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
                             break;
                         case ConsoleKey.G: // CURSO: 
