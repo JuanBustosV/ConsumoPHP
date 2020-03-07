@@ -227,19 +227,21 @@ namespace ConsumoPHP
                             Console.ReadKey(true);
 
                             break; 
-                        case ConsoleKey.A: // CURSO: 
+                        case ConsoleKey.A: // CURSO: 86. Consumo del método GuardarJson
                             Console.Clear();
 
                             // Inicia el contador:
                             tiempo = Stopwatch.StartNew();
 
                             // Código del programa...                            
-
-                            //result = client.
+                            result = client.GuardarJson("{\"deporte\":\"Fútbol\"," +
+                                        "\"equipos\":[" +
+                                            "{\"nombre\":\"Ajax\",\"pais\":\"Paises Bajos\"}," +
+                                            "{\"nombre\":\"Motril CF\",\"pais\":\"España\"}]}");
                             tiempo.Stop();
 
                             // Para el contador e imprime el resultado:
-                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
 
                             break;
@@ -261,6 +263,19 @@ namespace ConsumoPHP
                             break;
                         case ConsoleKey.C: // CURSO: 
                             Console.Clear();
+
+                            // Inicia el contador:
+                            tiempo = Stopwatch.StartNew();
+
+                            // Código del programa...                            
+
+                            //result = client.
+                            tiempo.Stop();
+
+                            // Para el contador e imprime el resultado:
+                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.ReadKey(true);
+
                             break;
                         case ConsoleKey.D: // CURSO: 
                             Console.Clear();
@@ -321,11 +336,11 @@ namespace ConsumoPHP
             Console.SetCursorPosition(5, Console.CursorTop);
             Console.WriteLine("7.- GuardarEquipos(*)".PadRight(30, ' ') + "*");
             Console.SetCursorPosition(5, Console.CursorTop);
-            Console.WriteLine("8.- GuardarXML()");
+            Console.WriteLine("8.- GuardarXML(*)");
             Console.SetCursorPosition(5, Console.CursorTop);
             Console.WriteLine("9.- RetornarJSON()");
             Console.SetCursorPosition(5, Console.CursorTop);
-            Console.WriteLine("A.- GuardarJSON()");
+            Console.WriteLine("A.- GuardarJSON(*)");
             Console.SetCursorPosition(5, Console.CursorTop);
             Console.WriteLine("B.- ObtenerProductos()");
             Console.SetCursorPosition(5, Console.CursorTop);
