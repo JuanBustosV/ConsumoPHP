@@ -267,14 +267,46 @@ namespace ConsumoPHP
                             Console.ReadKey(true);
 
                             break;
-                        case ConsoleKey.C: // CURSO: 
+                        case ConsoleKey.C: // CURSO: 89. Consumo del método ObtenerProducto
                             Console.Clear();
 
                             // Inicia el contador:
                             tiempo = Stopwatch.StartNew();
 
                             // Código del programa...                            
+                            ServiceReferencePHP.Producto resultado = client.ObtenerProducto(2);
+                            tiempo.Stop();
 
+                            Console.WriteLine(resultado.idproducto);
+                            Console.WriteLine(resultado.nombre);
+                            Console.WriteLine(resultado.precio);
+                            Console.WriteLine(resultado.stock);
+
+                            // Para el contador e imprime el resultado:
+                            Console.WriteLine("\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.ReadKey(true);
+
+                            break;
+                        case ConsoleKey.D: // CURSO: 
+                            Console.Clear();
+
+                            // Inicia el contador:
+                            tiempo = Stopwatch.StartNew();
+
+                            // Código del programa...                            
+                            //result = client.
+                            tiempo.Stop();
+
+                            // Para el contador e imprime el resultado:
+                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.ReadKey(true);
+                            break;
+                        case ConsoleKey.E: // CURSO: 
+                            Console.Clear();
+                            // Inicia el contador:
+                            tiempo = Stopwatch.StartNew();
+
+                            // Código del programa...                            
                             //result = client.
                             tiempo.Stop();
 
@@ -282,12 +314,6 @@ namespace ConsumoPHP
                             //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
 
-                            break;
-                        case ConsoleKey.D: // CURSO: 
-                            Console.Clear();
-                            break;
-                        case ConsoleKey.E: // CURSO: 
-                            Console.Clear();
                             break;
                         case ConsoleKey.F: // CURSO: 
                             Console.Clear();
