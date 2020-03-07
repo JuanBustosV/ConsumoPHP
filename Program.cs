@@ -245,19 +245,25 @@ namespace ConsumoPHP
                             Console.ReadKey(true);
 
                             break;
-                        case ConsoleKey.B: // CURSO: 
+                        case ConsoleKey.B: // CURSO: 88. Consumo del método ObtenerProductos
                             Console.Clear();
 
                             // Inicia el contador:
                             tiempo = Stopwatch.StartNew();
 
                             // Código del programa...                            
-
-                            //result = client.
+                            result = client.ObtenerProductos();
                             tiempo.Stop();
 
+                            dynamic productos = JsonConvert.DeserializeObject(result);
+
+                            foreach (dynamic producto in productos)
+                            {
+                                Console.WriteLine(producto);
+                            }
+
                             // Para el contador e imprime el resultado:
-                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.WriteLine("\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
 
                             break;
