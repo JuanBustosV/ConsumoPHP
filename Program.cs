@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.ServiceModel;
+using System.ServiceModel.Channels;
 using System.Text;
 
 namespace ConsumoPHP
@@ -346,15 +348,38 @@ namespace ConsumoPHP
                             break;
                         case ConsoleKey.G: // CURSO: 93. Clase AuthUser
                             Console.Clear();
-                            // Inicia el contador:
-                            tiempo = Stopwatch.StartNew();
 
-                            // Código del programa...                            
-                            result = client.ObtenerFecha();
-                            tiempo.Stop();
+                            //// Inicia el contador:
+                            //tiempo = Stopwatch.StartNew();
 
-                            // Para el contador e imprime el resultado:
-                            Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            //// Código del programa...                            
+                            //result = client.ObtenerFecha();
+                            //tiempo.Stop();
+
+                            //// Para el contador e imprime el resultado:
+                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+
+                            // CURSO: 94. Consumo del método con autenticación de cabecera - Header - P1
+                            using (var scope = new OperationContextScope(client.InnerChannel))
+                            {
+                                AuthUser authUser = new AuthUser
+                                {
+                                    UserName = "admin",
+                                    Password = "123"
+                                };
+
+                                MessageHeader messageHeader = MessageHeader.CreateHeader("AuthUser", "http://ejemplo.com/", authUser);
+                                OperationContext.Current.OutgoingMessageHeaders.Add(messageHeader);
+
+                                // Inicia el contador:
+                                tiempo = Stopwatch.StartNew();
+                                // Código del programa...                            
+                                result = client.ObtenerFecha();
+                                tiempo.Stop();
+                                // Para el contador e imprime el resultado:
+                                Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            }
+
                             Console.ReadKey(true);
                             break;
                         case ConsoleKey.H: // CURSO: 
