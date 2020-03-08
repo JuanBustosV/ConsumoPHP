@@ -344,17 +344,17 @@ namespace ConsumoPHP
                             Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
                             break;
-                        case ConsoleKey.G: // CURSO: 
+                        case ConsoleKey.G: // CURSO: 93. Clase AuthUser
                             Console.Clear();
                             // Inicia el contador:
                             tiempo = Stopwatch.StartNew();
 
                             // Código del programa...                            
-                            //result = client.
+                            result = client.ObtenerFecha();
                             tiempo.Stop();
 
                             // Para el contador e imprime el resultado:
-                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                            Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
                             Console.ReadKey(true);
                             break;
                         case ConsoleKey.H: // CURSO: 
