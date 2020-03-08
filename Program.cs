@@ -382,18 +382,29 @@ namespace ConsumoPHP
 
                             Console.ReadKey(true);
                             break;
-                        case ConsoleKey.H: // CURSO: 
+                        case ConsoleKey.H: // CURSO: 96. Consumo del método con autenticación básica - Basic
                             Console.Clear();
-                            // Inicia el contador:
-                            tiempo = Stopwatch.StartNew();
 
-                            // Código del programa...                            
-                            //result = client.
-                            tiempo.Stop();
+                            /* Descomentar si el ISS se ha cambiado de autenticación anónima a básica */
+                            client.ClientCredentials.UserName.UserName = "admin"; // validate_user en servicios.php
+                            client.ClientCredentials.UserName.Password = "321";
 
-                            // Para el contador e imprime el resultado:
-                            //Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
-                            Console.ReadKey(true);
+                            using (new OperationContextScope(client.InnerChannel))
+                            {
+
+                                // Descomentar si el ISS se ha cambiado de autenticación anónima a básica
+                                SoapAuthHeader.Create(client.ClientCredentials.UserName.UserName, client.ClientCredentials.UserName.Password);
+
+                                // Inicia el contador:
+                                tiempo = Stopwatch.StartNew();
+                                // Código del programa...                            
+                                result = client.ObtenerHora();
+                                tiempo.Stop();
+
+                                // Para el contador e imprime el resultado:
+                                Console.WriteLine(result + "\n\n\tTIEMPO: " + tiempo.Elapsed.Milliseconds.ToString() + " ms");
+                                Console.ReadKey(true);
+                            }                                                                                                                                         
                             break;
 
                         default:
